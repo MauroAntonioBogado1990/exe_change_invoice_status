@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="purchase_order_change_status_invoice_inherit" model="ir.ui.view">
+            <field name="name">purchase.order.view.form.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <button name="action_create_invoice" position="after">
+                    <!-- <button string="Forzar Estado Facturado" type="object"
+                            name="change_invoices_state" 
+                            attrs="{'invisible': [('state', '!=', 'purchase')]}"/> -->
+                     <button string="Forzar Estado Facturado" type="object" name="change_invoices_state" invisible="state != 'purchase'"/>
+                </button>
+            </field>
+        </record>
+    </data>
+</odoo>
+ 

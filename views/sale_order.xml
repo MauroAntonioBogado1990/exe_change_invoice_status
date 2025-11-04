@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="sale_order_change_status_invoice_inherit" model="ir.ui.view">
+            <field name="name">sale.order.view.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <button name="action_draft" position="after">
+                    <button string="Forzar Estado Facturado" type="object" name="change_invoices_state" />
+                </button>
+            </field>
+        </record>
+
+        <record id="sale_order_my_custom_action" model="ir.actions.server">
+            <field name="name">Forzar Estado Facturado Masivo</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="state">code</field>
+            <field name="code">record.change_invoices_state_masive()</field>
+        </record>
+
+    
+    </data>
+</odoo>
